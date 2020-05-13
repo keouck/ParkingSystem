@@ -20,7 +20,7 @@ digitalWrite(trig, LOW);
 
 distance= time*0.034/2; //Calculating distance between the sensor and the car
 
-if (distance > 200) {  //If there is a car, the sensor will sense something within 200cm
+if (distance > 200) {  //If there is nothing within 200cm it means tha no car is parked
    Serial.println("Space Available"); //and then print out that space is available
    
 } else {
