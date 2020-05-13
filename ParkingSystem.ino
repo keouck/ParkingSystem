@@ -1,18 +1,16 @@
-const int trig = 9;
+const int trig = 9; //Define the pins
 const int echo = 10;
 
-long time;
-int distance;
+long time; //Define a variable called time
+int distance; //Define a variable called distance
 void setup() {
 pinMode(trig, OUTPUT); 
 pinMode(echo, INPUT); 
-pinMode(LED_BUILTIN, OUTPUT);
-Serial.begin(9600); 
+Serial.begin(9600); //Begin serial monitor
 }
-void loop() {time = pulseIn(echo, HIGH);
+void loop() {time = pulseIn(echo, HIGH); //Get the time from the echo pin
 
-
-digitalWrite(trig, LOW);
+digitalWrite(trig, LOW); 
 delayMicroseconds(2);
 
 digitalWrite(trig, HIGH);
@@ -20,15 +18,13 @@ delayMicroseconds(10);
 digitalWrite(trig, LOW);
 
 
-distance= time*0.034/2;
+distance= time*0.034/2; //Calculating distance between the sensor and the car
 
-if (distance > 200) {
-   Serial.println("Space Available");
-   //Serial.println(distance);
+if (distance > 200) {  //If there is a car, the sensor will sense something within 200cm
+   Serial.println("Space Available"); //and then print out that space is available
    
 } else {
-   Serial.println("Space Full");
-   //Serial.println(distance);
+   Serial.println("Space Full"); //else say that space is full
 }
 
 }
